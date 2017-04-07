@@ -1,0 +1,11 @@
+[user]
+        name = Amit Sela
+	email = amitsela33@gmail.com
+[push]
+	default = simple
+[alias] 
+        cherry-pick-from = "!f() { git --git-dir=$1/.git && format-patch -k -1 --stdout $2 | git am -3 -k; }; f"
+        # apache checkout a finish-pr branch
+        checkout-finish = "!f() { git checkout -b finish-pr-$1 github/pr/$1; }; f"
+        # apache merge the finish-pr
+        close = "!f() { git merge --no-ff -m \"This closes #$1\" finish-pr-$1; }; f"
