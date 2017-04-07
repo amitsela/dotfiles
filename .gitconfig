@@ -3,7 +3,9 @@
 	email = amitsela33@gmail.com
 [push]
 	default = simple
-[alias] 
+[alias]
+        # cross-repo cherry pick; run from the repo you want to pick into: "cherry-pick-from
+        # path_to_git_dir_to_cherry_pick_from commit_hash"
         cherry-pick-from = "!f() { git --git-dir=$1/.git && format-patch -k -1 --stdout $2 | git am -3 -k; }; f"
         # apache checkout a finish-pr branch
         checkout-finish = "!f() { git checkout -b finish-pr-$1 github/pr/$1; }; f"
